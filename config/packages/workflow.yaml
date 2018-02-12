@@ -1,0 +1,67 @@
+framework:
+    workflows:
+        runner:
+            type: 'state_machine'
+            supports:
+                - App\Entity\Build
+                - App\Entity\Deployment
+            marking_store:
+                type: 'multiple_state'
+                arguments:
+                    - 'state'
+            places:
+                - submitted
+                - pending
+                - in_progress
+                - failed
+                - successful
+                - released
+            transitions:
+                run:
+                    from: submitted
+                    to: pending
+                processing:
+                    from: pending
+                    to: in_progress
+                retry:
+                    from: [successful, failed]
+                    to: pending
+                fail:
+                    from: in_progress
+                    to: failed
+                success:
+                    from: in_progress
+                    to: successful
+                release:
+                    from: successful
+                    to: released
+
+        release:
+            type: 'state_machine'
+            supports:
+                - App\Entity\Release
+            marking_store:
+                type: 'multiple_state'
+                arguments:
+                    - 'state'
+            places:
+                - unscheduled
+                - scheduled
+                - signed_off
+                - unreleased
+                - released
+            transitions:
+                schedule:
+                    from: unscheduled
+                    to: scheduled
+                reschedule:
+                    from: scheduled
+                    to: scheduled
+                unschedule:
+                    from: scheduled
+                    to: unscheduled
+                release:
+                    from: unreleased
+                    to: released
+                signoff:
+                    to: signed_off
