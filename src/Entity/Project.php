@@ -162,6 +162,16 @@ class Project
         $environment->setProject($this);
     }
 
+    public function removeEnvironment(Environment $environment): void
+    {
+        if (! $this->environments->contains($environment)) {
+            return;
+        }
+
+        $this->environments->removeElement($environment);
+        $environment->setProject(null);
+    }
+
     public function getCodeBuildProjectName(): ?string
     {
         return $this->config['codeBuildName'] ?? null;

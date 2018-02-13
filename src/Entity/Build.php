@@ -81,7 +81,7 @@ class Build
     /**
      * @param array $state
      */
-    public function setState($state): void
+    public function setState(array $state): void
     {
         $this->state = $state;
     }

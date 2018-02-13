@@ -31,7 +31,7 @@ class Environment
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Project")
      *
-     * @var Project
+     * @var Project|null
      */
     protected $project;
 
@@ -76,19 +76,28 @@ class Environment
     }
 
     /**
-     * @return Project
+     * @return Project|null
      */
-    public function getProject(): Project
+    public function getProject(): ?Project
     {
         return $this->project;
     }
 
     /**
-     * @param Project $project
+     * @param Project|null $project
      */
-    public function setProject(Project $project): void
+    public function setProject(?Project $project): void
     {
+        // Prevents circular reference when removing the environment
+        $oldProject = $this->project;
         $this->project = $project;
-        $project->addEnvironment($this);
+
+        if ($oldProject) {
+            $oldProject->removeEnvironment($this);
+        }
+
+        if ($project) {
+            $project->addEnvironment($this);
+        }
     }
 }
