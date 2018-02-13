@@ -52,6 +52,13 @@ class Project
     protected $environments;
 
     /**
+     * @ORM\Column(type="json")
+     *
+     * @var array
+     */
+    protected $config;
+
+    /**
      * Project constructor.
      * @param string $id
      * @param string $name
@@ -67,6 +74,7 @@ class Project
         $this->id = $id;
         $this->name = $name;
         $this->parent = $parent;
+        $this->config = [];
         $this->environments = new ArrayCollection($environments);
         $this->children = new ArrayCollection();
     }
@@ -152,5 +160,15 @@ class Project
 
         $this->environments->add($environment);
         $environment->setProject($this);
+    }
+
+    public function getCodeBuildProjectName(): ?string
+    {
+        return $this->config['codeBuildName'] ?? null;
+    }
+
+    public function setCodeBuildProjectName(string $projectName): void
+    {
+        $this->config['codeBuildName'] = $projectName;
     }
 }
