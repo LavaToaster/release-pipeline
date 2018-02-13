@@ -19,6 +19,11 @@
         <!-- ###+ nelmio/cors-bundle ### -->
         <env name="CORS_ALLOW_ORIGIN" value="^https?://localhost:?[0-9]*$"/>
         <!-- ###- nelmio/cors-bundle ### -->
+
+        <!-- ###+ aws/aws-sdk-php-symfony ### -->
+        <env name="AWS_KEY" value="not-a-real-key"/>
+        <env name="AWS_SECRET" value="@@not-a-real-secret"/>
+        <!-- ###- aws/aws-sdk-php-symfony ### -->
     </php>
 
     <testsuites>

@@ -2,6 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    codebuild.service_role_arn: '%env(CODEBUILD_ROLE_ARN)%'
+    codebuild.bucket_name: '%env(CODEBUILD_BUCKET_NAME)%'
 
 services:
     # default configuration for services in *this* file
