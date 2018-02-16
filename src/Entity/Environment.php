@@ -29,7 +29,7 @@ class Environment
     protected $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Project")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="environments")
      *
      * @var Project|null
      */

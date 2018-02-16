@@ -31,7 +31,7 @@ class Project
     protected $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Project")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Project", inversedBy="children")
      *
      * @var null|Project
      */
