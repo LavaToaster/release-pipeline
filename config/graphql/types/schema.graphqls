@@ -1,5 +1,23 @@
+input BuildFilter {
+    project: String
+}
+
 type Query {
-    listProjects(after: String, first: Int = 10, last: Int): ProjectConnection!
+    projects(after: String, first: Int = 10, last: Int): ProjectConnection!
+    builds(after: String, first: Int = 10, last: Int, filter: BuildFilter): BuildConnection!
+}
+
+enum RunState {
+    # Job has been created but not yet ran
+    SUBMITTED
+    # Job has been requested to be run, it's in the queue
+    PENDING
+    # Job is currently running
+    IN_PROGRESS
+    # Job has failed
+    FAILED
+    # Job was successful
+    SUCCESSFUL
 }
 
 type Environment {
@@ -20,9 +38,28 @@ type Project {
 type ProjectConnection {
     edges: [ProjectEdge]
     pageInfo: PageInfo!
+    totalCount: Int!
 }
 
 type ProjectEdge {
     cursor: String!
     node: Project
+}
+
+type Build {
+    id: String
+    number: Int
+    state: RunState
+    project: Project
+}
+
+type BuildConnection {
+    edges: [BuildEdge]
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+type BuildEdge {
+    cursor: String!
+    node: Build
 }

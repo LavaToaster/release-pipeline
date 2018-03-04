@@ -2,7 +2,6 @@
 
 namespace App\GraphQL;
 
-use App\GraphQL\Resolvers\ListProjects;
 use Overblog\GraphQLBundle\Resolver\ResolverMap as BaseResolverMap;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -28,7 +27,8 @@ class ResolverMap extends BaseResolverMap implements ContainerAwareInterface
     {
         return [
             'Query' => [
-                'listProjects' => $this->container->get(ListProjects::class),
+                'projects' => $this->container->get(Resolvers\Projects::class),
+                'builds' => $this->container->get(Resolvers\Builds::class),
             ],
         ];
     }

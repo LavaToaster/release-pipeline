@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Build;
 use App\Entity\Environment;
 use App\Entity\Project;
 use App\Entity\Release;
@@ -84,9 +85,18 @@ class AppFixtures extends Fixture
                     $manager->persist($environment);
                 }
 
+                for ($i = 0; $i < 100; $i++) {
+                    $build = new Build(
+                        Uuid::uuid4(),
+                        $subProject,
+                        $i + 1
+                    );
+
+                    $manager->persist($build);
+                }
+
                 $manager->persist($subProject);
             }
-
             $manager->persist($project);
         }
 
