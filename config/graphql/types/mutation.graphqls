@@ -1,0 +1,7 @@
+type Mutation {
+    createBuild(input: CreateBuild!): Build
+}
+
+input CreateBuild {
+    project: String!
+}

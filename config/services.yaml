@@ -32,3 +32,6 @@ services:
     _instanceof:
         Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface:
             public: true
+
+        Overblog\GraphQLBundle\Definition\Resolver\MutationInterface:
+            public: true

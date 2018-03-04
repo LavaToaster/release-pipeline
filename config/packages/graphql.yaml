@@ -4,6 +4,7 @@ overblog_graphql:
         auto_mapping: false
         schema:
             query: Query
+            mutation: Mutation
             resolver_maps:
                 - App\GraphQL\ResolverMap
         mappings:

@@ -30,6 +30,9 @@ class ResolverMap extends BaseResolverMap implements ContainerAwareInterface
                 'projects' => $this->container->get(Resolvers\Projects::class),
                 'builds' => $this->container->get(Resolvers\Builds::class),
             ],
+            'Mutation' => [
+                'createBuild' => $this->container->get(Mutation\CreateBuild::class)
+            ],
         ];
     }
 
