@@ -1,0 +1,28 @@
+type Query {
+    listProjects(after: String, first: Int = 10, last: Int): ProjectConnection!
+}
+
+type Environment {
+    id: String!
+    name: String,
+    project: Project
+}
+
+# Project Type
+type Project {
+    id: String!
+    # Name of the project
+    name: String
+    codeBuildProjectName: String
+    environments: [Environment]
+}
+
+type ProjectConnection {
+    edges: [ProjectEdge]
+    pageInfo: PageInfo!
+}
+
+type ProjectEdge {
+    cursor: String!
+    node: Project
+}

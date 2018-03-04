@@ -1,0 +1,11 @@
+--- vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base_js.html.twig	2018-03-02 14:02:56.811843026 +0200
++++ vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base_js.html.twig	2018-03-02 13:59:34.122604090 +0200
+@@ -122,7 +122,7 @@
+                 return;
+             }
+ 
+-            var nbOfAjaxRequest = tbody.rows.count();
++            var nbOfAjaxRequest = tbody.rows.length;
+             if (nbOfAjaxRequest >= 100) {
+                 tbody.deleteRow(nbOfAjaxRequest - 1);
+             }

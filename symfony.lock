@@ -1,16 +1,4 @@
 {
-    "api-platform/api-pack": {
-        "version": "1.1.0"
-    },
-    "api-platform/core": {
-        "version": "2.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.1",
-            "ref": "b50f8aa321cc40c380dda7605aa5cef66f476802"
-        }
-    },
     "aws/aws-sdk-php": {
         "version": "3.52.6"
     },
@@ -145,6 +133,27 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
+    },
+    "overblog/graphiql-bundle": {
+        "version": "0.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.1",
+            "ref": "fe8d172f2480efc598f5a8be0e732656d3594cec"
+        }
+    },
+    "overblog/graphql-bundle": {
+        "version": "0.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.9",
+            "ref": "31775bd62133c1ed66fac537694909c25fbfb879"
+        }
+    },
+    "overblog/graphql-php-generator": {
+        "version": "v0.6.0"
     },
     "paragonie/random_compat": {
         "version": "v2.0.11"
@@ -472,9 +481,6 @@
     },
     "webonyx/graphql-php": {
         "version": "v0.11.5"
-    },
-    "willdurand/negotiation": {
-        "version": "v2.3.1"
     },
     "zendframework/zend-code": {
         "version": "3.3.0"

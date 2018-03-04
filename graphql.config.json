@@ -1,0 +1,15 @@
+{
+  "schema": {
+    "request": {
+      "url" : "http://localhost:8000",
+      "method" : "POST",
+      "postIntrospectionQuery" : true
+    }
+  },
+  "endpoints": [
+    {
+      "name": "Local",
+      "url": "http://localhost:8000"
+    }
+  ]
+}

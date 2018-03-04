@@ -1,4 +1,0 @@
-api_platform:
-    title: 'Blissful CI'
-    mapping:
-        paths: ['%kernel.project_dir%/src/Entity']
