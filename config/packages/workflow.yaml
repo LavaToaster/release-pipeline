@@ -10,12 +10,12 @@ framework:
                 arguments:
                     - 'state'
             places:
+                # TODO: Rename submitted to something else? Just to clear up conflicting meaning with pending.
                 - submitted
                 - pending
                 - in_progress
                 - failed
                 - successful
-                - released
             transitions:
                 run:
                     from: submitted
@@ -32,9 +32,6 @@ framework:
                 success:
                     from: in_progress
                     to: successful
-                release:
-                    from: successful
-                    to: released
 
         release:
             type: 'state_machine'
