@@ -1,5 +1,6 @@
 overblog_graphql:
     definitions:
+        show_debug_info: true
         auto_mapping: false
         schema:
             query: Query
