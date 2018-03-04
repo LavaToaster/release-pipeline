@@ -1,7 +1,13 @@
 type Mutation {
-    createBuild(input: CreateBuild!): Build
+    createBuild(input: CreateBuildInput!): CreateBuildPayload
 }
 
-input CreateBuild {
+input CreateBuildInput {
+    clientMutationId: String!
     project: String!
+}
+
+type CreateBuildPayload {
+    clientMutationId: String!
+    build: Build
 }

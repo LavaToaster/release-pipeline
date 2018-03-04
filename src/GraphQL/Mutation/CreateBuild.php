@@ -46,6 +46,9 @@ class CreateBuild implements MutationInterface
         $this->entityManager->flush();
         $this->entityManager->commit();
 
-        return $build;
+        return [
+            'clientMutationId' => $input['clientMutationId'],
+            'build' => $build,
+        ];
     }
 }
